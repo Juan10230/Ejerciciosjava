@@ -5,19 +5,7 @@ import org.zap.juanpelu.poointerfaces.modelo.Cliente;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ClienteListRepositorio implements FullRepositorio {
-
-    private List<Cliente> dataSource;
-
-    public ClienteListRepositorio() {
-        this.dataSource = new ArrayList<>();
-    }
-
-
-    @Override
-    public List<Cliente> listaClientes() {
-        return dataSource;
-    }
+public  class ClienteListRepositorio extends AbstractListRepositorio<Cliente> {
 
     @Override
     public Cliente porID(Integer id) {
@@ -33,11 +21,6 @@ public class ClienteListRepositorio implements FullRepositorio {
     }
 
     @Override
-    public void crearCliente(Cliente cliente) {
-        this.dataSource.add(cliente);
-    }
-
-    @Override
     public void editarCliente(Cliente cliente) {
         Cliente cli = this.porID(cliente.getIdCliente());
         cli.setNombre(cliente.getNombre());
@@ -45,14 +28,7 @@ public class ClienteListRepositorio implements FullRepositorio {
 
     }
 
-    @Override
-    public void eliminarCliente(Integer id) {
 
-        this.dataSource.remove(this.porID(id));
-
-    }
-
-/*Sobrecarga de metodos de la interfaz OrdenableRepositorio*/
     @Override
     public List<Cliente> listar(String campo, Direccion dir) {
         List<Cliente> listaOrdenada = new ArrayList<>(this.dataSource);
@@ -68,15 +44,16 @@ public class ClienteListRepositorio implements FullRepositorio {
         return listaOrdenada;
     }
 
-    /*Sobrecarga de metodos de la interfaz OrdenableRepositorio*/
-    @Override
-    public List<Cliente> listar(int desde, int hasta) {
-        return dataSource.subList(desde, hasta);
+    public static int ordenar(String campo,Cliente a, Cliente b) {
+        int resultado = 0;
+        switch (campo) {
+            case "id" -> resultado = a.getIdCliente().compareTo(b.getIdCliente());
+            case "nombre" -> resultado = a.getNombre().compareTo(b.getNombre());
+            case "apellido" -> resultado = a.getApellido().compareTo(b.getApellido());
+        }
+        return resultado;
     }
 
 
-    @Override
-    public int total() {
-        return this.dataSource.size();
-    }
+
 }

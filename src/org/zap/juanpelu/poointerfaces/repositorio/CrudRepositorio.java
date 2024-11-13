@@ -1,15 +1,13 @@
 package org.zap.juanpelu.poointerfaces.repositorio;
 
-import org.zap.juanpelu.poointerfaces.modelo.Cliente;
-
 import java.util.List;
 
-public interface CrudRepositorio {
+public interface CrudRepositorio<T> {
 
-    List<Cliente> listaClientes();
-    Cliente porID(Integer id);
-    void crearCliente(Cliente cliente);
-    void editarCliente(Cliente cliente);
+    List<T> listaClientes();
+    T porID(Integer id);
+    void crearCliente(T cliente);
+    void editarCliente(T cliente);
     void eliminarCliente(Integer id);
 
 }

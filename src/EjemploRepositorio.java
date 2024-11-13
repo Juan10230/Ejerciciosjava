@@ -1,7 +1,5 @@
 import org.zap.juanpelu.poointerfaces.modelo.Cliente;
-import org.zap.juanpelu.poointerfaces.repositorio.ClienteListRepositorio;
-import org.zap.juanpelu.poointerfaces.repositorio.Direccion;
-import org.zap.juanpelu.poointerfaces.repositorio.PaginableRepositorio;
+import org.zap.juanpelu.poointerfaces.repositorio.*;
 
 import java.util.List;
 
@@ -9,7 +7,7 @@ public class EjemploRepositorio {
     public static void main(String[] args) {
 
 
-        ClienteListRepositorio repo = new ClienteListRepositorio();
+        FullRepositorio<Cliente> repo = new ClienteListRepositorio();
 
         repo.crearCliente(new Cliente("Juan","a"));
         repo.crearCliente(new Cliente("Flor","b"));
@@ -19,7 +17,7 @@ public class EjemploRepositorio {
         List<Cliente> clientes =  repo.listaClientes();
         clientes.forEach(System.out::println);
 
-        List<Cliente> paginable =  ((PaginableRepositorio)repo).listar(0,3);
+        List<Cliente> paginable =repo.listar(0,3);
         System.out.println("_______________________________________________");
         paginable.forEach(System.out::println);
 
@@ -50,6 +48,7 @@ public class EjemploRepositorio {
         repo.eliminarCliente(2);
         repo.listaClientes().forEach(System.out::println);
 
-        System.out.println("==============Total==============\nRegistros:"+ repo.total());
+        System.out.println("==============Total==============\nRegistros:"
+                + repo.total());
     }
 }
