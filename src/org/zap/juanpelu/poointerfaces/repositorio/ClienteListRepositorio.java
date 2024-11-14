@@ -8,19 +8,6 @@ import java.util.List;
 public  class ClienteListRepositorio extends AbstractListRepositorio<Cliente> {
 
     @Override
-    public Cliente porID(Integer id) {
-        Cliente clienteE = null;
-
-        for (Cliente cli : dataSource) {
-            if (cli.getIdCliente() != null && cli.getIdCliente().equals(id)) {
-                clienteE = cli;
-                break;
-            }
-        }
-        return clienteE;
-    }
-
-    @Override
     public void editarCliente(Cliente cliente) {
         Cliente cli = this.porID(cliente.getIdCliente());
         cli.setNombre(cliente.getNombre());

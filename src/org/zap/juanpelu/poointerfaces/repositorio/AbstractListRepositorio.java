@@ -1,8 +1,10 @@
 package org.zap.juanpelu.poointerfaces.repositorio;
+import org.zap.juanpelu.poointerfaces.modelo.BaseEntidad;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class AbstractListRepositorio<T> implements FullRepositorio<T> {
+public abstract class AbstractListRepositorio<T extends BaseEntidad> implements FullRepositorio<T> {
 
     protected List<T> dataSource;
 
@@ -16,18 +18,18 @@ public abstract class AbstractListRepositorio<T> implements FullRepositorio<T> {
         return dataSource;
     }
 
-    /*@Override
-    public Cliente porID(Integer id) {
-        Cliente clienteE = null;
+    @Override
+    public T porID(Integer id) {
+        T clienteE = null;
 
-        for (Cliente cli : dataSource) {
+        for (T cli : dataSource) {
             if (cli.getIdCliente() != null && cli.getIdCliente().equals(id)) {
                 clienteE = cli;
                 break;
             }
         }
         return clienteE;
-    }*/
+    }
 
     @Override
     public void crearCliente(T t) {

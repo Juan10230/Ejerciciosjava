@@ -2,25 +2,16 @@ package org.zap.juanpelu.poointerfaces.modelo;
 
 import java.util.Objects;
 
-public class Cliente {
-    private Integer idCliente;
+public class Cliente extends BaseEntidad{
+
     private String nombre;
     private String apellido;
-    private static int ultimoID;
 
-
-    public Cliente() {
-        this.idCliente = ultimoID++;
-    }
 
     public Cliente(String nombre, String apellido) {
-        this();
+        super();
         this.nombre = nombre;
         this.apellido = apellido;
-    }
-
-    public Integer getIdCliente() {
-        return idCliente;
     }
 
     public String getNombre() {
@@ -29,10 +20,6 @@ public class Cliente {
 
     public String getApellido() {
         return apellido;
-    }
-
-    public void setIdCliente(Integer idCliente) {
-        this.idCliente = idCliente;
     }
 
     public void setNombre(String nombre) {
