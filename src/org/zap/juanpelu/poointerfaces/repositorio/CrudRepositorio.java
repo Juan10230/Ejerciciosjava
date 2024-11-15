@@ -6,8 +6,8 @@ public interface CrudRepositorio<T> {
 
     List<T> listaClientes();
     T porID(Integer id);
-    void crearCliente(T cliente);
-    void editarCliente(T cliente);
+    void crearCliente(T objeto);
+    void editarCliente(T objeto);
     void eliminarCliente(Integer id);
 
 }

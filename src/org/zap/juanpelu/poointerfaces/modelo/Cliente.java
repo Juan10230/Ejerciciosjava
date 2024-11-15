@@ -37,16 +37,5 @@ public class Cliente extends BaseEntidad{
                 ", apellido='" + apellido + '\'';
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Cliente cliente = (Cliente) o;
-        return Objects.equals(idCliente, cliente.idCliente);
-    }
 
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(idCliente);
-    }
 }

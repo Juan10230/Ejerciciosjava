@@ -1,6 +1,8 @@
-package org.zap.juanpelu.poointerfaces.repositorio;
+package org.zap.juanpelu.poointerfaces.repositorio.lista;
 
 import org.zap.juanpelu.poointerfaces.modelo.Cliente;
+import org.zap.juanpelu.poointerfaces.repositorio.AbstractListRepositorio;
+import org.zap.juanpelu.poointerfaces.repositorio.Direccion;
 
 import java.util.ArrayList;
 import java.util.List;

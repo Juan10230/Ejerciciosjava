@@ -1,5 +1,6 @@
 import org.zap.juanpelu.poointerfaces.modelo.Cliente;
 import org.zap.juanpelu.poointerfaces.repositorio.*;
+import org.zap.juanpelu.poointerfaces.repositorio.lista.ClienteListRepositorio;
 
 import java.util.List;
 

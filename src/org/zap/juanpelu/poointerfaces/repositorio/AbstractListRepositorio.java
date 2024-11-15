@@ -20,15 +20,15 @@ public abstract class AbstractListRepositorio<T extends BaseEntidad> implements 
 
     @Override
     public T porID(Integer id) {
-        T clienteE = null;
+        T resultado = null;
 
         for (T cli : dataSource) {
             if (cli.getIdCliente() != null && cli.getIdCliente().equals(id)) {
-                clienteE = cli;
+                resultado = cli;
                 break;
             }
         }
-        return clienteE;
+        return resultado;
     }
 
     @Override
